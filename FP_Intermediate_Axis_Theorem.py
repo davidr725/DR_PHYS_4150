@@ -7,9 +7,10 @@ from vpython import sphere
 from vpython import rate
 
 
-# Author: David Ramirez - 5/18/21
-# Based on "Visualizing the Rotation of an Asymmetric Object"
-# By: Andrea Ferroglia
+# Code Author: David Ramirez - 5/18/21
+# This code is based on a paper named:
+# "Visualizing the Rotation of an Asymmetric Object"
+# Paper's Author: Andrea Ferroglia
 
 
 '''
