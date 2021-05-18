@@ -6,6 +6,7 @@ from vpython import color
 from vpython import sphere
 from vpython import rate
 
+
 # Author: David Ramirez - 5/18/21
 # Based on "Visualizing the Rotation of an Asymmetric Object"
 # By: Andrea Ferroglia
@@ -53,18 +54,44 @@ def Euler_Solver(ODE):
 
 '''
 ===========================
-       COMPUTATION
+    SETUP & COMPUTATION
 ===========================
 '''
 
+# Allow the user to set specific initial conditions
+print("Choose a set of initial angular velocities, omega")
+print("")
+print("Option 1: omega1 = 1, omega2 = .2, omega3 = .01")
+print("Option 2: omega1 = .2, omega2 = 1, omega3 = .01")
+print("Option 3: omega1 = 1e-8, omega2 = 1e-4, omega3 = .1")
+print("")
+print("type '1', '2', or '3' to select one of the corresponding options")
+choice = int(input())
 
-# Initial conditions
+while choice != 1 and choice != 2 and choice != 3:
+    print("invalid selection, please try again")
+    print("type '1', '2', or '3' to select one of the corresponding options")
+    choice = int(input())
+
+if choice == 1:
+    omega1_initial = 1
+    omega2_initial = .2
+    omega3_initial = .01
+
+elif choice == 2:
+    omega1_initial = .2
+    omega2_initial = 1
+    omega3_initial = .01
+
+elif choice == 3:
+    omega1_initial = 1e-8
+    omega2_initial = 1e-4
+    omega3_initial = 1
+
+# Initial moments of interia, lamda1, lamda2, lamda3
 I1 = 3
 I2 = 1
 I3 = 2
-omega1_initial = 1e-8
-omega2_initial = 1e-4
-omega3_initial = 1
 
 
 # Runge Kutta setup
@@ -211,6 +238,3 @@ while i < N:
     arrow_e1.axis = r1
     arrow_e2.axis = r2
     arrow_e3.axis = r3
-
-    if i == N:
-        break
